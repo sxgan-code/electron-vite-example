@@ -11,15 +11,44 @@ var data = Mock.mock({
   }]
 })
 // 输出结果
-console.log("test mock data:",JSON.stringify(data, null, 4))
+console.log("test mock data:", JSON.stringify(data, null, 4))
 </script>
 
 <template>
   <div id="app">
-    <router-view/>
+    <transition name="move">
+      <router-view class="router-view"/>
+    </transition>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+#app {
+  width: 100%;
+  height: 100%;
+}
 
+/* translation 移动进入的效果，前缀为move*/
+.move-enter-active,
+.move-leave-active {
+  transition: all 1s;
+}
+
+.move-enter-from {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.move-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+//.move-leave-from {
+//  transform: translateX(-100%);
+//}
+//
+//.move-leave-to {
+//  transform: translateX(0);
+//}
 </style>
