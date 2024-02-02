@@ -1,0 +1,44 @@
+/* 导入字体样式 */
+@import "@/assets/iconfonts/myiconfont/style.scss";
+@import "@/assets/iconfonts/huaweiicon/style.scss";
+
+/*导入字体图标*/
+$iconFontsDir: '@/assets/iconfonts/iconfont';
+$hwFontsDir: '@/assets/iconfonts/huaweiicon';
+$myFontsDir: '@/assets/iconfonts/myiconfont';
+
+/* 配置$IconFonts*/
+@font-face {
+  font-family: 'iconfont';
+  src: url('#{$iconFontsDir}/iconfont.eot'); /* IE9*/
+  src: url('#{$iconFontsDir}/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('#{$iconFontsDir}/iconfont.woff') format('woff'), /* chrome、firefox */
+  url('#{$iconFontsDir}/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('#{$iconFontsDir}/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{
+  font-family: "iconfont" !important;
+  font-size: 1.6rem;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* 配置HWFonts*/
+@font-face {
+  font-family: 'huaweiicon';
+  src: url('#{$hwFontsDir}/HuaweiIcon.eot'); /* IE9*/
+  src: url('#{$hwFontsDir}/HuaweiIcon.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('#{$hwFontsDir}/HuaweiIcon.woff') format('woff'), /* chrome、firefox */
+  url('#{$hwFontsDir}/HuaweiIcon.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('#{$hwFontsDir}/HuaweiIcon.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+/* 配置myFontsDir*/
+@font-face {
+  font-family: 'myiconfont';
+  src: url('#{$myFontsDir}/myiconfont.eot'); /* IE9*/
+  src: url('#{$myFontsDir}/myiconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('#{$myFontsDir}/myiconfont.woff') format('woff'), /* chrome、firefox */
+  url('#{$myFontsDir}/myiconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('#{$myFontsDir}/myiconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}

@@ -1,0 +1,47 @@
+{
+  "name": "electron-vite-template",
+  "version": "1.0.0",
+  "description": "Really simple Electron26 + Vue3 + Vite4 template.",
+  "author": "sxgan <sxgan@foxmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "vite --mode dev",
+    "pro": "vite --mode pro",
+    "build": "vue-tsc && vite build --mode pro && electron-builder --win",
+    "build-pro": "vue-tsc && vite build --mode pro && electron-builder",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "@highlightjs/vue-plugin": "^2.1.0",
+    "@iconify-json/ep": "^1.1.14",
+    "@types/mockjs": "^1.0.10",
+    "axios": "^1.6.7",
+    "element-plus": "^2.5.3",
+    "highlight.js": "^11.9.0",
+    "mockjs": "^1.1.0",
+    "pinia": "^2.1.7",
+    "qs": "^6.11.2",
+    "sass": "^1.70.0",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5",
+    "vue3-lazyload": "^0.3.8"
+  },
+  "devDependencies": {
+    "@iconify-json/ep": "^1.1.14",
+    "@iconify/vue": "^4.1.1",
+    "@vitejs/plugin-vue": "^4.3.4",
+    "electron": "^26.1.0",
+    "electron-builder": "^24.6.4",
+    "typescript": "^5.2.2",
+    "unplugin-auto-import": "^0.17.4",
+    "unplugin-icons": "^0.18.2",
+    "unplugin-vue-components": "^0.26.0",
+    "vite": "^4.4.9",
+    "vite-plugin-electron": "^0.14.0",
+    "vite-plugin-electron-renderer": "^0.14.5",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vue-tsc": "^1.8.8"
+  },
+  "main": "dist-electron/main.js"
+}
