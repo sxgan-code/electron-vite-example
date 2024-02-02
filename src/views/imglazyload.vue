@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import {getBaseImgUtl, getFixedPositionNumStr, goToRouter} from "@/utils/CommonUtils.ts";
+import {goToRouter} from "@/utils/CommonUtils.ts";
+import songImages from "@/assets/datas/song-list.ts";
 
 console.log(import.meta.env.VITE_APP_ENV)
 const isDev = (import.meta.env.VITE_APP_ENV === 'development')
 console.log("是否是DEV环境：" + isDev)
+
 
 </script>
 
@@ -11,10 +13,9 @@ console.log("是否是DEV环境：" + isDev)
   <!-- 懒加载组件在dev下显示不出来，可通过build后查看 -->
   <ReturnPageBtn @click='goToRouter("/main")' align="left" content="返回主页"/>
   <div class="image-box">
-    <div class="img-div" v-for="(item,index) in 10" :key="index">
-      <img width="150" height="150"
-           v-lazy="getBaseImgUtl('/music/songListImg/song-list-zip-'+getFixedPositionNumStr(item,4)+'.jpg')">
-      <div class="img-index"><span>{{ item }}</span></div>
+    <div class="img-div" v-for="(item,index) in songImages" :key="index">
+      <img width="150" height="150" v-lazys="item.url">
+      <div class="img-index"><span>{{ index + 1 }}</span></div>
     </div>
   </div>
 </template>

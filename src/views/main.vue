@@ -47,12 +47,12 @@ import {goToRouter} from "@/utils/CommonUtils.ts";
   flex-direction: column;
   background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   overflow: hidden;
+  font-family: "JetBrainsMono Bold";
   .main-top {
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 64%);
     height: 8rem;
     .main-title {
-      font-family: "HarmonyOS Sans Bold";
       width: 20rem;
       margin: 1rem auto;
       font-size: 3rem;

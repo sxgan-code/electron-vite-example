@@ -89,5 +89,9 @@ export default defineConfig(({command, mode}) => {
                 '@': path.resolve(__dirname, "./src")
             }
         },
+        server:{
+            port:9999,
+            host:'127.0.0.1'
+        }
     }
 })

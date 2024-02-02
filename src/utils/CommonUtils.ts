@@ -57,7 +57,7 @@ export async function copyToClipboard(text: string): Promise<void> {
 
 /* 获取图片地址 */
 export function getBaseImgUtl(path: string): string {
-    console.log('当前环境图片地址',import.meta.env.VITE_BASE_IMG_URL)
+    // console.log('当前环境图片地址',import.meta.env.VITE_BASE_IMG_URL)
     let baseImgUrl = import.meta.env.VITE_BASE_IMG_URL
     return baseImgUrl + path;
 }
