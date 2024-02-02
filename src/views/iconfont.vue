@@ -2,15 +2,11 @@
 import iconfontArr from "@/assets/iconfonts/iconfont/iconfont.data.arry.ts";
 import {ref} from "vue";
 import {copyToClipboard, goToRouter} from "@/utils/CommonUtils.ts";
+import useBackTop from "@/hooks/useBackTop.ts";
 
+const {goBackTop, backTopFlag} = useBackTop()
 /* 定义锚点 */
 const headRef = ref('readRef')
-
-
-async function toAnchorPoint() {
-  // @ts-ignore
-  headRef.value.scrollIntoView({behavior: 'smooth', block: 'start'})
-}
 
 function copyIconCode(copyCode: string) {
   let copy: string = '<i class="icon iconfont">&#xe' + copyCode + '</i>';
@@ -37,7 +33,9 @@ function copyIconCode(copyCode: string) {
           </li>
         </ul>
       </div>
-      <ReturnPageBtn align="center-top" content="回到顶部" @click="toAnchorPoint()"/>
+      <div class="btn-fixed" v-if="backTopFlag">
+        <ReturnPageBtn align="center-top" content="返回顶部" @click="goBackTop(0)"/>
+      </div>
       <div class="main-code">
         <p>第一步：使用font-face声明字体</p>
         <HgCode
@@ -125,16 +123,17 @@ h1, .tabBox {
         }
       }
     }
-
-
-    .main-code p {
-      font-size: 1.6rem;
-      line-height: 2rem;
-      margin-left: 2rem;
-
-    }
+  }
+  .btn-fixed{
+    position: fixed;
+    left: calc(50vw - 6rem);
+    bottom: 1rem;
+  }
+  .main-code p {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    margin-left: 2rem;
 
   }
-
 }
 </style>

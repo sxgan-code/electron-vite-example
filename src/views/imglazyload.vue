@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import {goToRouter} from "@/utils/CommonUtils.ts";
 import songImages from "@/assets/datas/song-list.ts";
+import useBackTop from "@/hooks/useBackTop.ts";
 
+const {backTopFlag, goBackTop} = useBackTop()
 console.log(import.meta.env.VITE_APP_ENV)
 const isDev = (import.meta.env.VITE_APP_ENV === 'development')
 console.log("是否是DEV环境：" + isDev)
@@ -17,6 +19,9 @@ console.log("是否是DEV环境：" + isDev)
       <img width="150" height="150" v-lazys="item.url">
       <div class="img-index"><span>{{ index + 1 }}</span></div>
     </div>
+  </div>
+  <div style="position: fixed;left: calc(50vw - 6rem);bottom: 1rem;" v-if="backTopFlag">
+    <ReturnPageBtn align="center-top" content="返回顶部" @click="goBackTop(0)"/>
   </div>
 </template>
 

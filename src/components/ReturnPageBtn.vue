@@ -51,7 +51,7 @@ if (props.align === 'left') {
 .top-button-box {
   width: 12rem;
   height: 3rem;
-  background: #a0cfff;
+  background: rgba(#a0cfff, 0.7);
   line-height: 3rem;
   text-align: center;
   display: flex;

@@ -12,16 +12,16 @@ import {goToRouter} from "@/utils/CommonUtils.ts";
       <div class="class-title">资源类</div>
       <div class="all-class">
         <div class="one-item">
-          <el-button type="primary" @click="goToRouter('/main/myiconfont')">MyIconFont图标大全</el-button>
+          <el-button type="primary" @click="goToRouter('/main/myiconfont')">MyIconFont 图标大全</el-button>
         </div>
         <div class="one-item">
-          <el-button type="primary" @click="goToRouter('/main/huaweiicon')">Huawei Icon图标大全</el-button>
+          <el-button type="primary" @click="goToRouter('/main/huaweiicon')">Huawei Icon 图标大全</el-button>
         </div>
         <div class="one-item">
           <el-button type="primary" @click="goToRouter('/main/iconfont')">Iconfont图标大全</el-button>
         </div>
         <div class="one-item">
-          <el-button type="primary" @click="goToRouter('/main/svgplugin')">Svg图标大全及SvgPlugin使用</el-button>
+          <el-button type="primary" @click="goToRouter('/main/svgplugin')">Svg 图标大全及 SvgPlugin 使用</el-button>
         </div>
       </div>
       <div class="hr"></div>
@@ -43,6 +43,7 @@ import {goToRouter} from "@/utils/CommonUtils.ts";
 
 <style scoped lang="scss">
 .main-root {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
