@@ -17,7 +17,7 @@
 <template>
   <div id="app">
     <router-view v-slot="{ Component,route }">
-      <transition name="move" mode="in-out">
+      <transition>
         <component :is="Component" :key="route.path"/>
       </transition>
     </router-view>
@@ -25,29 +25,41 @@
 </template>
 
 <style lang="scss">
+#app{
+  width: 100vw;
+}
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.4s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
 /* translation 移动进入的效果，前缀为move*/
-.move-enter-active,
-.move-leave-active {
-  transition: all 1s inherit;
-}
-
-.move-enter-from {
-  //transform: translateX(100%);
-  opacity: 0;
-}
-
-.move-enter-to {
-  //transform: translateX(0);
-  opacity: 1;
-}
-
-.move-leave-from {
-  //  //transform: translateX(0);
-  opacity: 1;
-}
-
-.move-leave-to {
-  //transform: translateX(100%);
-  opacity: 0;
-}
+//.move-enter-active,
+//.move-leave-active {
+//  transition: all 1s inherit;
+//}
+//
+//.move-enter-from {
+//  //transform: translateX(100%);
+//  opacity: 0;
+//}
+//
+//.move-enter-to {
+//  //transform: translateX(0);
+//  opacity: 1;
+//}
+//
+//.move-leave-from {
+//  //  //transform: translateX(0);
+//  opacity: 1;
+//}
+//
+//.move-leave-to {
+//  //transform: translateX(100%);
+//  opacity: 0;
+//}
 </style>
