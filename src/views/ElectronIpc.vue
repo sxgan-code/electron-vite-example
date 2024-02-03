@@ -59,15 +59,13 @@ new Notification({
       <el-button class="but" type="primary" @click="sendToMainMsgNotice(sysMsgByMainProcess)">
         渲染进程向主进程发送消息，主进程处理后发送通知（系统显示弹窗）
       </el-button>
+      <hr/>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
 .ipc-root {
-  min-height: 100vh;
-  width: 100vw;
-
   p {
     font-size: 1.4rem;
     line-height: 5rem;
@@ -87,9 +85,7 @@ new Notification({
   }
 
   .renderer-to-main {
-    width: 96vw;
-    margin: 0 auto;
-
+    margin: 0 3rem;
     .input {
       margin: 1rem 0;
     }

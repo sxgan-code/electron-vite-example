@@ -20,9 +20,6 @@ import HeadTitleBox from "@/components/HeadTitleBox.vue";
 
 </template>
 <style scoped lang="scss">
-.myicon-root-box {
-  width: 100%;
-}
 .img-div {
   width: 10rem;
   height: 10rem;

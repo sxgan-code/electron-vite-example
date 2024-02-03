@@ -31,7 +31,8 @@ function createWindow() {
         height: 800,
         minWidth: 1000,
         minHeight: 800,
-        frame: true,// false为无边框模式
+        frame: false,// false为无边框模式
+        transparent: true, // 窗口是否支持透明，如果想做高级效果最好为true,此项必须设置frame为false，且关闭DevTools，这两项会影响效果
         // 指定软件的图标
         icon: appIcon,
 
@@ -57,7 +58,7 @@ function createWindow() {
     // 增加配置选择加载路径，只有dev环境打开DevTools
     if (VITE_DEV_SERVER_URL) {
         win.loadURL(VITE_DEV_SERVER_URL)
-        win.webContents.openDevTools({mode: "detach"})
+        // win.webContents.openDevTools({mode: "detach"})
     } else {
         win.loadFile(path.join(process.env.DIST, 'index.html'))
     }

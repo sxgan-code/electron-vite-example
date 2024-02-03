@@ -105,13 +105,16 @@
   注意：本身带有fontsize属性的标签可能会有不同，例如 h1、h2...等标签可能并非期望值，所以建议这类标签自己写样式
 */
 html, body {
+  overflow-y: auto;
+  overflow-x: hidden;
   font-size: 10px;
 }
 
 /*滚动条整体样式*/
 ::-webkit-scrollbar {
   width: 1rem; /*高宽分别对应横竖滚动条的尺寸*/
-  height: 1rem;/*表示水平方向的滚动条高度*/
+  height: 1rem; /*表示水平方向的滚动条高度*/
+
 }
 
 ::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
@@ -119,15 +122,18 @@ html, body {
   -webkit-box-shadow: inset 0 0 0.5rem rgba(#ccc, 0.3);
   background: rgba(#ccc, 0.3);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   border-radius: 1rem;
   -webkit-box-shadow: inset 0 0 0.5rem rgba(#ccc, 0.3);
   background: rgba(#777, 0.3);
 }
+
 ::-webkit-scrollbar-track { /*滚动条里面轨道*/
   border-radius: 1rem;
   opacity: 1%;
 }
+
 
 
 

@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 #app{
   width: 100vw;
 }

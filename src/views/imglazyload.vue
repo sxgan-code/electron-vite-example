@@ -30,9 +30,6 @@ console.log("是否是DEV环境：" + isDev)
 </template>
 
 <style scoped lang="scss">
-.myicon-root-box {
-  width: 100%;
-}
 .image-box {
   display: flex;
   flex-direction: row;
