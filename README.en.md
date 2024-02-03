@@ -24,35 +24,37 @@ Enter the corresponding installation execution file according to the version, `w
 ## description of the project structure
 ```sh
 + ├─┬ electron
-+ │ ├── electron-env.d.ts             # Electron 变量声明文件   
-+ │ ├── main.ts                       # Electron Main文件  
-+ │ └── preload.ts                    # Electron 预加载脚本
-+ │ └── env                           # vite 环境变量文件夹
-+ │ └── other                         # vite 其他配置文件夹,自动导入等
-+ │ └── public                        # Electron 静态资源文件夹
++ │ ├── electron-env.d.ts             # Electron variable declaration file 
++ │ ├── main.ts                       # Electron main file 
++ │ ├── ipcMain.ts                    # Electron ipcMain file which is used for ipc communication
++ │ └── preload.ts                    # Electron preload scripts
++ │ └── env                           # vite environment variables folder
++ │ └── other                         # vite Other configuration folders, automatic imports, etc
++ │ └── public                        # Electron static resource folders
   ├─┬ src
-  │ └── main.ts                       # vue 入口ts文件
-  │ └── App.vue                       # Vue 单页面，用于挂载到index.html
-  │ └── vite-env.d.ts                 # vite 变量声明文件
+  │ └── main.ts                       # vue entry ts file
+  │ └── App.vue                       # Vue A single page that is used to mount to a index.html
+  │ └── vite-env.d.ts                 # vite variable declaration file
   │ └─┬ assets
-  │   └── css                         # vue 公共css文件夹
-  │   └── fonts                       # vue 字体文件夹
-  │   └── iconfonts                   # vue 字体图标文件夹
-  │   └── images                      # vue 图片文件夹
-  │ └── components                    # vue 组件-用于view目录的单页面组件
+  │   └── css                         # vue public css folder
+  │   └── fonts                       # vue font folder
+  │   └── iconfonts                   # vue font icon folder
+  │   └── images                      # vue pictures folder
+  │ └── components                    # vue Component - A single-page component used to view the directory
   │ └── router                        
-  │ │   └── index.ts                  # vue-router 配置文件
-  │ └── store                         # 存放pinia store文件目录
+  │ │   └── index.ts                  # vue-router Profiles
+  │ └── store                         # store the pinia store file directory
+  │ └── hooks                         # store the hook public encapsulation method
   │ └── utils                         
-  │ │   └── CommonUtils.ts            # vue 公共ts文件-通用方法
-  │ │   └── http.ts                   # axios http配置文件
-  │ └── views                         # 存放vue单页面
+  │ │   └── CommonUtils.ts            # vue public ts file common method
+  │ │   └── http.ts                   # axios http configuration file
+  │ └── views                         # store a single page of vue
   ├── index.html
-  ├── electron-builder.json5          # electron 构建配置文件
-  ├── tsconfig.json                   # TypeScript 配置文件
+  ├── electron-builder.json5          # electron build a configuration file
+  ├── tsconfig.json                   # TypeScript profiles
   ├── tsconfig.node.json
-  ├── package.json                    # 依赖
-  └── vite.config.ts                  # vite 配置文件
+  ├── package.json                    # dependencies
+  └── vite.config.ts                  # vite config file
 ```
 SVG images can be directly placed in the `src/assets/images/common/svg` directory and will be automatically loaded into the `svgplugin.vue` page
 ## Install the image and some package management tools

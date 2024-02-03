@@ -27,6 +27,7 @@ npm run build
 + ├─┬ electron
 + │ ├── electron-env.d.ts             # Electron 变量声明文件   
 + │ ├── main.ts                       # Electron Main文件  
++ │ ├── ipcMain.ts                    # Electron ipcMain文件，用于IPC通信  
 + │ └── preload.ts                    # Electron 预加载脚本
 + │ └── env                           # vite 环境变量文件夹
 + │ └── other                         # vite 其他配置文件夹,自动导入等
@@ -44,6 +45,7 @@ npm run build
   │ └── router                        
   │ │   └── index.ts                  # vue-router 配置文件
   │ └── store                         # 存放pinia store文件目录
+  │ └── hooks                         # 存放 hook 公共封装方法
   │ └── utils                         
   │ │   └── CommonUtils.ts            # vue 公共ts文件-通用方法
   │ │   └── http.ts                   # axios http配置文件
