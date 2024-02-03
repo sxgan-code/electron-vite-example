@@ -31,15 +31,17 @@ function getVerify() {
 
 <template>
   <h1>这里是登录表单</h1>
+  <el-button type="primary" @click="toSignin()">登录</el-button>
+  <el-button type="primary" @click="getVerify()">获取验证码</el-button>
+  <hr/>
   <el-button type="primary" @click="mainStore.increment()">通过increment方法自增</el-button>
   <el-button type="primary" @click="mainStore.counter++">通过直接访问自增</el-button>
   <el-button type="primary" @click="mainStore.autoIncrement()">每200ms自增一次共执行100次</el-button>
   <el-button type="primary" @click="mainStore.$reset()">重置状态</el-button>
   <el-button type="primary" @click="mainStore.count=0">重置自增次数</el-button>
   <hr/>
-  <el-button type="primary" @click="toSignin()">登录</el-button>
-  <el-button type="primary" @click="getVerify()">获取验证码</el-button>
-  <hr/>
+
+
 </template>
 
 <style scoped lang="scss">

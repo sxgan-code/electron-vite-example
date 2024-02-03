@@ -15,32 +15,33 @@ function copyIconCode(copyCode: string) {
 </script>
 
 <template>
-  <ReturnPageBtn align="left" content="返回主页" @click="goToRouter('/main')"/>
-  <h1 ref="headRef" class="title">IconFont图标大全</h1>
-  <div class="tabBox">
-    <div id="head" class="hd">
-      <ul>
-        <li>font字体图标编码对照表</li>
-        <li>使用指南</li>
-      </ul>
-    </div>
-    <div class="bd">
-      <div class="main-icon">
+  <div class="myicon-root-box">
+    <ReturnPageBtn align="left" content="返回主页" @click="goToRouter('/main')"/>
+    <h1 ref="headRef" class="title">IconFont图标大全</h1>
+    <div class="tabBox">
+      <div id="head" class="hd">
         <ul>
-          <li @click="copyIconCode(item.copyCode)" v-for="(item,index) in iconfontArr" :key="index">
-            <i class="icon iconfont">{{ item.code }}</i>
-            <div class="name">{{ index + 1 + '、' + item.name }}</div>
-          </li>
+          <li>font字体图标编码对照表</li>
+          <li>使用指南</li>
         </ul>
       </div>
-      <div class="btn-fixed" v-if="backTopFlag">
-        <ReturnPageBtn align="center-top" content="返回顶部" @click="goBackTop(0)"/>
-      </div>
-      <div class="main-code">
-        <p>第一步：使用font-face声明字体</p>
-        <HgCode
-            lang="css"
-            code="@font-face {
+      <div class="bd">
+        <div class="main-icon">
+          <ul>
+            <li @click="copyIconCode(item.copyCode)" v-for="(item,index) in iconfontArr" :key="index">
+              <i class="icon iconfont">{{ item.code }}</i>
+              <div class="name">{{ index + 1 + '、' + item.name }}</div>
+            </li>
+          </ul>
+        </div>
+        <div class="btn-fixed" v-if="backTopFlag">
+          <ReturnPageBtn align="center-top" content="返回顶部" @click="goBackTop(0)"/>
+        </div>
+        <div class="main-code">
+          <p>第一步：使用font-face声明字体</p>
+          <HgCode
+              lang="css"
+              code="@font-face {
   font-family: 'iconfont';
   src: url('iconfont.eot'); /* IE9*/
   src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -48,26 +49,28 @@ function copyIconCode(copyCode: string) {
   url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
   url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }"/>
-        <pre>
+          <pre>
 
         </pre>
-        <p>第二步：定义使用iconfont的样式</p>
-        <HgCode
-            lang="css"
-            code=".iconfont{
+          <p>第二步：定义使用iconfont的样式</p>
+          <HgCode
+              lang="css"
+              code=".iconfont{
   font-family:'iconfont' !important;
   font-size:16px;font-style:normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }"/>
-        <p>第三步：挑选相应图标并点击获取字体代码，应用于页面</p>
-        <HgCode
-            lang="css"
-            code="<i class='icon iconfont'>&#xe600</i>"/>
+          <p>第三步：挑选相应图标并点击获取字体代码，应用于页面</p>
+          <HgCode
+              lang="css"
+              code="<i class='icon iconfont'>&#xe600</i>"/>
+        </div>
       </div>
     </div>
   </div>
+
 
 </template>
 
@@ -78,8 +81,6 @@ function copyIconCode(copyCode: string) {
 }
 
 h1, .tabBox {
-  width: 100vw;
-
   .hd {
     font-size: 1.6rem;
 
@@ -124,11 +125,13 @@ h1, .tabBox {
       }
     }
   }
-  .btn-fixed{
+
+  .btn-fixed {
     position: fixed;
     left: calc(50vw - 6rem);
     bottom: 1rem;
   }
+
   .main-code p {
     font-size: 1.6rem;
     line-height: 2rem;

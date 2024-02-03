@@ -1,6 +1,7 @@
+/// @filename: CommonUtils.ts
 import router from "@/router/index.ts"
 
-/// @filename: CommonUtils.ts
+const sourceDir = import.meta.env.VITE_APP_ENV === 'development' ? 'public' : 'dist'
 
 /*路由跳转指定地址*/
 export function goToRouter(path: string) {
@@ -75,4 +76,15 @@ export function getFixedPositionNumStr(num: number, positionNum: number): string
         }
     }
     return result + numStr
+}
+
+/* 向系统直接发送消息 */
+export function sendToSysNotice(msg: string) {
+    let option = {
+        title: '通知',
+        body: msg,
+        icon: sourceDir + '/icons/logo-web-app.ico'
+    }
+    new window.Notification(option.title, option)
+    console.log(option)
 }

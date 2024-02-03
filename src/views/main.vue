@@ -9,6 +9,27 @@ import {goToRouter} from "@/utils/CommonUtils.ts";
       <p>前端Electron21+Vite4+Vue3等系列案例</p>
     </div>
     <div class="main-content-class">
+      <div class="class-title">VUE 技术类</div>
+      <div class="all-class">
+        <div class="one-item">
+          <el-button type="primary" @click="goToRouter('/main/imglazyload')">图片懒加载实现</el-button>
+        </div>
+        <div class="one-item">
+          <el-button type="primary" @click="goToRouter('/auth/signin')">简单的登录功能及Pinia基本使用</el-button>
+        </div>
+      </div>
+      <div class="hr"></div>
+    </div>
+    <div class="main-content-class">
+      <div class="class-title">Electron 相关</div>
+      <div class="all-class">
+        <div class="one-item">
+          <el-button type="primary" @click="goToRouter('/electron/ipc')">进程间的通信</el-button>
+        </div>
+      </div>
+      <div class="hr"></div>
+    </div>
+    <div class="main-content-class">
       <div class="class-title">资源类</div>
       <div class="all-class">
         <div class="one-item">
@@ -26,18 +47,6 @@ import {goToRouter} from "@/utils/CommonUtils.ts";
       </div>
       <div class="hr"></div>
     </div>
-    <div class="main-content-class">
-      <div class="class-title">技术类</div>
-      <div class="all-class">
-        <div class="one-item">
-          <el-button type="primary" @click="goToRouter('/auth/signin')">认证登录模块搭建</el-button>
-        </div>
-        <div class="one-item">
-          <el-button type="primary" @click="goToRouter('/main/imglazyload')">图片懒加载实现</el-button>
-        </div>
-      </div>
-      <div class="hr"></div>
-    </div>
   </div>
 </template>
 
@@ -47,7 +56,6 @@ import {goToRouter} from "@/utils/CommonUtils.ts";
   display: flex;
   flex-direction: column;
   background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
-  overflow: hidden;
   font-family: "JetBrainsMono Bold";
 
   .main-top {

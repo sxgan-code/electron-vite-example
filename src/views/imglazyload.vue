@@ -12,7 +12,7 @@ console.log("是否是DEV环境：" + isDev)
 </script>
 
 <template>
-  <div>
+  <div class="myicon-root-box">
     <!-- 懒加载组件在dev下显示不出来，可通过build后查看 -->
     <ReturnPageBtn @click='goToRouter("/main")' align="left" content="返回主页"/>
     <div class="image-box">
@@ -30,6 +30,9 @@ console.log("是否是DEV环境：" + isDev)
 </template>
 
 <style scoped lang="scss">
+.myicon-root-box {
+  width: 100%;
+}
 .image-box {
   display: flex;
   flex-direction: row;

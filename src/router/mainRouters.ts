@@ -36,6 +36,11 @@ const mainRouters: RouteRecordRaw[] = [
         name: 'imglazyload',
         component: () => import("@/views/imglazyload.vue"),
     },
+    {
+        path: '/electron/ipc',
+        name: 'electron-ipc',
+        component: () => import("@/views/ElectronIpc.vue"),
+    },
     // {
     //     path: '/main',
     //     name: 'Main',

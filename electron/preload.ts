@@ -3,7 +3,9 @@ import {contextBridge, ipcRenderer} from 'electron'
 
 // --------- 将一些 API 暴露给 Renderer 进程---------
 contextBridge.exposeInMainWorld('ipcRenderer', withPrototype(ipcRenderer))
-
+contextBridge.exposeInMainWorld('electronAPI', {
+    setTitle: (title:any) => ipcRenderer.send('set-title', title)
+})
 // “exposeInMainWorld”无法检测“prototype”的属性和方法，需要手动修补它。
 function withPrototype(obj: Record<string, any>) {
     const protos = Object.getPrototypeOf(obj)

@@ -4,7 +4,7 @@ interface ImportMetaEnv {
     /** 应用名称 */
     readonly VITE_APP_NAME: string
     /** 当前环境 */
-    readonly VUE_APP_ENV: string
+    readonly VITE_APP_ENV: string
     /** 首页地址*/
     readonly VUE_APP_URL: string
     /** baseURL 用于区分环境并配置代理 */

@@ -19,6 +19,7 @@ export default defineConfig(({command, mode}) => {
     // 启动时打印 key 的内容
     console.log("当前环境VITE_APP_ENV：" + env.VITE_APP_ENV)
     return {
+        base:'./',
         envDir: ENV_DIR,
         plugins: [
             vue(),
@@ -37,6 +38,7 @@ export default defineConfig(({command, mode}) => {
                 // Ployfill the Electron and Node.js built-in modules for Renderer process.
                 // See 👉 https://github.com/electron-vite/vite-plugin-electron-renderer
                 renderer: {},
+
 
             }),
             createSvgIconsPlugin({

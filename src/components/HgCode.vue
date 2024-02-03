@@ -33,9 +33,10 @@ const props = defineProps({
           :code="props.code"
       />
       <div class="code-lang">
-        <i class="icon myiconfont my-embed2"><span class="path1"></span><span class="path2"></span><span
-            class="path3"></span><span class="lang"></span></i>
-        <span class="code-lang-text">{{ props.lang }}</span>
+        <div>
+          <div class="code-icon"><i class="icon myiconfont my-embed2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i></div>
+          <div class="code-lang-text"><span>{{ props.lang }}</span></div>
+        </div>
       </div>
     </div>
 
@@ -118,27 +119,37 @@ const props = defineProps({
     }
 
     .code-lang {
-      width: 8rem;
+      max-width: 12rem;
       height: 2rem;
       margin: 0.5rem 0 0 auto;
       text-align: center;
       box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.15), -2px -2px 5px rgba(0, 0, 0, 0.15);
       border-radius: 0.5rem;
-      display: flex;
-      justify-content: space-between;
       font-family: 'JetBrainsMono Bold Italic';
       color: #f89898;
 
-      i {
-        font-size: 1.1rem;
-        margin: auto 0.5rem;
+      div {
+        max-width: 14rem;
+        display: flex;
+
+        .code-icon {
+          padding:0.5rem 0 0 2rem;
+          width: 4rem;
+          text-align: center;
+          font-size: 1.1rem;
+        }
+
+        .code-lang-text {
+          width: 10rem;
+          font-size: 1.2rem;
+          margin: 0.1rem 0;
+          padding-right: 1rem;
+          span {
+            margin: 0 auto;
+          }
+        }
       }
 
-      .code-lang-text {
-        font-size: 1.4rem;
-        margin: 0 0.5rem;
-        align-content: center;
-      }
     }
   }
 

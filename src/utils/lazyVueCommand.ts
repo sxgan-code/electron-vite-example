@@ -16,7 +16,7 @@ const lazy = (app: any) => {
                     observe.unobserve(el)
                     // 加载失败
                     el.onerror = () => {
-                        console.log('error')
+                        console.log('img load filed')
                     }
                     // 将lazy的图片内容，交给src
                     el.src = binding.value

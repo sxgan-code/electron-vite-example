@@ -89,10 +89,6 @@ function copyIconCode(enName: string) {
 </template>
 
 <style scoped lang="scss">
-.myicon-root-box {
-  width: 100%;
-}
-
 .title {
   font-size: 3rem;
   text-align: center;
