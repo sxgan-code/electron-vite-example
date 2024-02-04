@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import {ref} from "vue";
 import huaweiIconArr from "@/assets/iconfonts/huaweiicon/huaweifont.data.arry.ts";
 import {copyToClipboard, goToRouter} from "@/utils/CommonUtils.ts";
 import useBackTop from "@/hooks/useBackTop.ts";
+import HeadTitleBox from "@/components/HeadTitleBox.vue";
+import {ref} from 'vue'
 
-const {backTopFlag, goBackTop} = useBackTop()
-/* 定义锚点 */
-const headRef = ref('readRef')
+const anchorsRef = ref('anchorsRef')
+const {backTopFlag,scrollToTop, goBackAnchors} = useBackTop(anchorsRef)
 
 function copyIconCode(enName: string, pathNum: number) {
   let copy: string = '<i class="icon huaweiicon ' + enName + '">';
@@ -28,15 +28,11 @@ function copyIconCode(enName: string, pathNum: number) {
 </script>
 <template>
   <div class="myicon-root-box">
-    <ReturnPageBtn align="left" content="返回主页" @click="goToRouter('/main')"/>
-    <h1 ref="headRef" class="title">Huawei图标大全</h1>
-    <div class="tabBox">
-      <div id="head" class="hd">
-        <ul>
-          <li>font字体图标编码对照表</li>
-          <li>使用指南</li>
-        </ul>
-      </div>
+    <head-title-box title="Huawei图标大全"
+                    info="font字体图标编码对照表及使用指南"/>
+    <div class="tabBox" @scroll="scrollToTop">
+      <div ref="anchorsRef"></div>
+      <ReturnPageBtn align="left" content="返回主页" @click="goToRouter('/main')"/>
       <div class="bd">
         <div class="main-icon">
           <ul>
@@ -48,10 +44,9 @@ function copyIconCode(enName: string, pathNum: number) {
             </li>
           </ul>
         </div>
-
       </div>
       <div class="btn-fixed" v-if="backTopFlag">
-        <ReturnPageBtn align="center-top" content="返回顶部" @click="goBackTop(0)"/>
+        <ReturnPageBtn align="center-top" content="返回顶部" @click="goBackAnchors('')"/>
       </div>
 
       <div class="main-code">
@@ -92,23 +87,15 @@ function copyIconCode(enName: string, pathNum: number) {
 </template>
 
 <style scoped lang="scss">
-.myicon-root-box {
-  width: 100%;
-}
-.title {
-  font-size: 3rem;
-  text-align: center;
-}
-
-h1, .tabBox {
-  .hd {
-    font-size: 1.6rem;
-
-    ul li {
-      text-align: center;
-    }
+.tabBox {
+  height: calc(100vh - 8rem);
+  overflow-y: auto;
+  .btn-fixed {
+    position: fixed;
+    left: calc(50vw - 6rem);
+    bottom: 1rem;
+    z-index: 999;
   }
-
   .bd {
     .main-icon ul {
       display: flex;
@@ -121,7 +108,8 @@ h1, .tabBox {
         height: 12rem;
         margin: 0.8rem;
         padding: 1rem;
-        background: #ccc;
+        background: rgba(#fff, 0.6);
+        border-radius: 1rem;
         text-align: center;
 
         i {
@@ -147,11 +135,7 @@ h1, .tabBox {
     }
   }
 
-  .btn-fixed {
-    position: fixed;
-    left: calc(50vw - 6rem);
-    bottom: 1rem;
-  }
+
 
   .main-code p {
     font-size: 1.6rem;

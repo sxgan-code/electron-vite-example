@@ -10,24 +10,27 @@ import HeadTitleBox from "@/components/HeadTitleBox.vue";
     <ReturnPageBtn align="left" content="返回主页" @click="goToRouter('/main')"/>
 
     <div class="svg-box">
-      <div class="svg-box-item" v-for="(item,index) in ids">
+      <div class="svg-box-item img-div" v-for="(item,index) in ids">
         <SvgPlugin :name="item.substring(5,item.length)" :key="index"/>
         <div>{{ item }}</div>
       </div>
     </div>
-    <img class="img-div" src="@/assets/images/common/svg/icons-huawei-4.svg" alt="">
+
   </div>
 
 </template>
 <style scoped lang="scss">
+.myicon-root-box{
+  min-height: 100vh;
+}
 .img-div {
   width: 10rem;
   height: 10rem;
-  transition: transform 3s, width 1s, height 2s, e 2s;
+  transition: transform 1s, width 1s, height 2s, e 2s;
 }
 
 .img-div:hover {
-  transform: rotate(180deg);
+  transform: rotate(360deg);
 }
 
 .svg-box {

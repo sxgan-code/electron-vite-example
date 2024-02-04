@@ -9,7 +9,7 @@ const mainRouters: RouteRecordRaw[] = [
     {
         path: '/main',
         name: 'main',
-        component: () => import("@/views/main.vue"),
+        component: () => import("@/components/ClassMenu.vue"),
     },
     {
         path: '/main/iconfont',
@@ -44,7 +44,7 @@ const mainRouters: RouteRecordRaw[] = [
     // {
     //     path: '/main',
     //     name: 'Main',
-    //     component: () => import("@/views/Main.vue"),
+    //     component: () => import("@/views/MainPage.vue"),
     //     children: [
     //         {
     //             path: 'MusicPavilion/:songListId',

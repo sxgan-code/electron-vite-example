@@ -31,6 +31,13 @@ const props = defineProps({
 </template>
 
 <style scoped lang="scss">
+.head-box{
+  position: fixed;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  z-index: 9;
+}
 .head-title {
   font-family: "JetBrainsMono Bold";
   background-color: #8EC5FC;

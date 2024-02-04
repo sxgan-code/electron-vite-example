@@ -1,10 +1,10 @@
 <script setup lang="ts">
+
 import {goToRouter} from "@/utils/CommonUtils.ts";
 </script>
 
 <template>
-  <div class="main-root">
-    <head-title-box title="案例大全" info="前端Electron21+Vite4+Vue3等系列案例"/>
+  <div class="class-root">
     <div class="main-content-class">
       <div class="class-title">VUE 技术类</div>
       <div class="all-class">
@@ -45,14 +45,14 @@ import {goToRouter} from "@/utils/CommonUtils.ts";
       <div class="hr"></div>
     </div>
   </div>
+
 </template>
 
 <style scoped lang="scss">
-.main-root {
-  min-height: 100vh;
+.class-root {
+  min-height: calc(100vh - 8rem);
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(to top,rgba(#fff1eb,0.85)  0%, rgba(#ace0f9,0.85) 100%);
   font-family: "JetBrainsMono Bold";
   .main-content-class {
     width: 98vw;
@@ -87,5 +87,4 @@ import {goToRouter} from "@/utils/CommonUtils.ts";
     }
   }
 }
-
 </style>

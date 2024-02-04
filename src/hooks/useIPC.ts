@@ -2,7 +2,7 @@ import {onMounted, ref, Ref} from "vue";
 
 export default function useIPC() {
     const fromMainMsg: Ref<string> = ref<string>('默认消息')
-    const maxOrUnMaxStart = ref<boolean>(false)
+    const maxOrUnMaxStart = ref<boolean>(true)
 
     /* 所有监听 */
     onMounted(() => {
@@ -32,6 +32,7 @@ export default function useIPC() {
             sendController = 'unmax'
             maxOrUnMaxStart.value = true
         }
+        console.log(sendController);
         window.ipcRenderer.send('win-controller', sendController)
     }
 

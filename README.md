@@ -1,5 +1,7 @@
 持续更新中。。。@sxgan
 
+所有资源来源于网络公开资源，仅供学习
+
 [中文](README.md) | [English](README.en.md)
 
 ## 项目启动

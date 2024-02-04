@@ -1,5 +1,7 @@
 continuously updating... @sxgan
 
+All resources are from public resources on the Internet and are for learning only
+
 ## PROJECT INITIATION
 
 install dependencies
