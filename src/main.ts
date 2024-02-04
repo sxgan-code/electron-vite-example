@@ -20,7 +20,6 @@ const app = createApp(App)
 app.use(router)
 app.use(createPinia())
 app.use(hljsVuePlugin)
-
 app.use(laze)
 app.mount('#app').$nextTick(() => {
     // Remove Preload scripts loading

@@ -16,7 +16,7 @@ export const initIpcMain = (win:BrowserWindow) => {
         // 向主进程推送一个时间消息
         win?.webContents.send('main-renderer-msg', '测试推送消息:' + (new Date).toLocaleString())
     })
-
+    /* 渲染进程发送到主进程的消息，使用Notification发送系统通知 */
     ipcMain.on('renderer-main-notice',(event,msg)=>{
         const NOTIFICATION_TITLE: string = '通知'
         const NOTIFICATION_BODY: string = msg
@@ -27,6 +27,20 @@ export const initIpcMain = (win:BrowserWindow) => {
             body: NOTIFICATION_BODY,
             icon: appIcon,
         }).show()
+    })
+
+
+    // 窗口控制
+    ipcMain.on('win-controller',(event,data)=>{
+        if (data=='max'){
+            win.maximize()
+        }else if (data=='unmax') {
+            win.unmaximize()
+        }else if (data=='min'){
+            win.minimize()
+        }else if (data=='close'){
+            win.close()
+        }
     })
     /*  */
 

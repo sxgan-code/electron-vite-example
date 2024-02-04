@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import useIPC from "@/hooks/useIPC.ts";
+
+const {sendWinController} = useIPC();
 const props = defineProps({
   title: {
     type: String,
@@ -20,9 +23,9 @@ const props = defineProps({
       <div class="simple-info">{{ props.info }}</div>
     </div>
     <div class="head-sys-click">
-      <div class="icon-box-close"><i class="icon iconfont">&#xe68d</i></div>
-      <div class="icon-box-max"><i class="icon iconfont">&#xe751</i></div>
-      <div class="icon-box-min"><i class="icon iconfont">&#xe972</i></div>
+      <div class="icon-box-close" @click="sendWinController('close')"><i class="icon iconfont">&#xe68d</i></div>
+      <div class="icon-box-max" @click="sendWinController('max-unmax')"><i class="icon iconfont">&#xe751</i></div>
+      <div class="icon-box-min" @click="sendWinController('min')"><i class="icon iconfont">&#xe972</i></div>
     </div>
   </div>
 </template>
