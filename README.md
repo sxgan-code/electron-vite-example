@@ -6,26 +6,31 @@
 
 ## 项目启动
 
-安装依赖
+### 安装依赖
 
 ```sh
 npm install
 ```
-启动命令
+### 启动命令
 注意：dev使用的为本地环境，pro为线上环境，图片采用云端，请使用pro环境启动，pro环境启动会存在图片无法加载，
 但使用build构建后正常， 原因可能和本地开发有关，也可自行添加图片到本地，注意修改路径
 ```shell
 npm run pro
 ```
-构建命令
+### 构建命令
 ```shell
 npm run build
 ```
 注意：初次启动加载会较慢，打包后的文件在`dist-electron/release/`目录下，该目录下一般会存打包版本，
 根据版本进入对应的安装执行文件，win-unpacked为绿色版免安装，可直接运行exe文件，其他系统环境同理
 
+### 解决进程残留并快速重启
+```shell
+TASKKILL /F /IM electron.exe  | npm run dev
+```
+
 ## 项目结构说明
-```sh
+```text
 + ├─┬ electron
 + │ ├── electron-env.d.ts             # Electron 变量声明文件   
 + │ ├── main.ts                       # Electron Main文件  

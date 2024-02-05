@@ -5,7 +5,7 @@ import HeadTitleBox from "@/components/HeadTitleBox.vue";
 import useIPC from "@/hooks/useIPC.ts";
 import {ref} from "vue";
 
-const {sendToMainMsg, fromMainMsg, sendToMainMsgNotice} = useIPC()
+const {sendToMainMsg, fromMainMsg, sendToMainMsgNotice, sendSyncMsgToMain, sendAsyncMsgToMain,openChildWin} = useIPC()
 let sysMsgByRendererProcess = ref('Hello, this is a system message that will be sent directly through the rendering process')
 let sysMsgByMainProcess = ref('Hello, this is a system message that will be sent through the main process')
 
@@ -22,9 +22,24 @@ let sysMsgByMainProcess = ref('Hello, this is a system message that will be sent
                    @click="sendToMainMsg('Hello, this is a message sent by the rendering process')">
           渲染器进程到主进程（单向）
         </el-button>
+
+        <el-button class="but" type="primary"
+                   @click="sendSyncMsgToMain('向主进程发送同步消息，等待主进程处理两秒后返回消息')">
+          向主进程发送同步消息，等待主进程处理两秒后返回消息
+        </el-button>
+
+        <el-button class="but" type="primary"
+                   @click="sendAsyncMsgToMain('向主进程发送异步消息，无需等待主进程处理10秒后的返回消息')">
+          向主进程发送异步消息，无需等待主进程(主进程会处理10秒)的返回消息
+        </el-button>
+
+        <el-button class="but" type="primary"
+                   @click="openChildWin('/login')">
+          打开一个子窗口
+        </el-button>
         <hr>
         <p>主进程到渲染进程,项目启动后让主进程发送消息(消息将展示在input中)。</p>
-        <p>此处因为展示所以我们借助上面的按钮触发一个主进程的消息，默认消息会被替换:</p>
+        <p>此处因为展示所以我们借助上面的第一个按钮触发一个主进程的消息，默认消息会被替换:</p>
         <el-input class="input" type="text" v-model="fromMainMsg">
         </el-input>
       </div>
@@ -69,10 +84,11 @@ new Notification({
 
 <style scoped lang="scss">
 .ipc-root {
-  .ipc-content{
+  .ipc-content {
     height: calc(100vh - 8rem);
     overflow-y: auto;
   }
+
   p {
     font-size: 1.4rem;
     line-height: 5rem;
@@ -93,6 +109,12 @@ new Notification({
 
   .renderer-to-main {
     margin: 0 3rem;
+
+    button {
+      line-height: 14rem;
+      margin: 2rem 1rem;
+    }
+
     .input {
       margin: 1rem 0;
     }

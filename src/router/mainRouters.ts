@@ -12,6 +12,11 @@ const mainRouters: RouteRecordRaw[] = [
         component: () => import("@/components/ClassMenu.vue"),
     },
     {
+        path: '/login',
+        name: 'login',
+        component: () => import("@/views/LoginChildWin.vue"),
+    },
+    {
         path: '/main/iconfont',
         name: 'iconfont',
         component: () => import("@/views/iconfont.vue"),

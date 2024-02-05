@@ -31,17 +31,41 @@ function createWindow() {
         height: 800,
         minWidth: 1000,
         minHeight: 800,
+        modal:true,
         frame: false,// false为无边框模式
         transparent: true, // 窗口是否支持透明，如果想做高级效果最好为true,此项必须设置frame为false，且关闭DevTools，这两项会影响效果
         // 指定软件的图标
         icon: appIcon,
-
+        show: false,
+        // titleBarStyle 配合 titleBarOverlay 在 windows 下会在应用右上方显示三个系统按钮：最小、最大、关闭。
+        // titleBarStyle: 'hidden',
+        // titleBarOverlay: {
+        //     color: '#ffffff00',
+        //     symbolColor: '#000000ff',
+        //     height: 30
+        // },
         // 预加载文件
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             webSecurity: false,
         },
     })
+
+    /* 初始化IPC通信 */
+    initIpcMain(win);
+    // 在Electron工程启动文件main.js的头部设置以下内容，也可以屏蔽安全告警在console控制台的显示
+    process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
+    win.once('ready-to-show', () => {
+        win?.show()
+    })
+    // 增加配置选择加载路径，只有dev环境打开DevTools
+    if (VITE_DEV_SERVER_URL) {
+        win.loadURL(VITE_DEV_SERVER_URL)
+        win.webContents.openDevTools({mode: "detach"})
+    } else {
+        win.loadFile(path.join(process.env.DIST, 'index.html'))
+    }
+
     /* 定义一个系统创建主窗口时的通知 */
     const NOTIFICATION_TITLE: string = '通知'
     const NOTIFICATION_BODY: string = 'Main process create window'
@@ -50,19 +74,8 @@ function createWindow() {
         body: NOTIFICATION_BODY,
         icon: appIcon,
     }).show()
-    /* 初始化IPC通信 */
-    initIpcMain(win);
-    // 在Electron工程启动文件main.js的头部设置以下内容，也可以屏蔽安全告警在console控制台的显示
-    process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
-
-    // 增加配置选择加载路径，只有dev环境打开DevTools
-    if (VITE_DEV_SERVER_URL) {
-        win.loadURL(VITE_DEV_SERVER_URL)
-        // win.webContents.openDevTools({mode: "detach"})
-    } else {
-        win.loadFile(path.join(process.env.DIST, 'index.html'))
-    }
 }
+
 
 app.on('activate', () => {
     // On OS X it's common to re-create a window in the app when the
@@ -76,10 +89,14 @@ app.on('activate', () => {
 您可以监听 app 模块的 window-all-closed 事件，并调用 app.quit() 来退出您的应用程序。此方法不适用于 macOS。
 */
 app.on('window-all-closed', () => {
+    console.log('win closed')
     if (process.platform !== 'darwin') {
         app.quit()
         win = null
     }
 })
-
+// app.on("session-end", (event) => {
+//     exec("mongodb/bin/mongo admin --eval 'db.shutdownServer()'");
+//     process.exit(); // really let the app exit now
+// });
 app.whenReady().then(createWindow)

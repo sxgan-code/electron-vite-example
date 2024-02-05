@@ -4,27 +4,32 @@ All resources are from public resources on the Internet and are for learning onl
 
 ## PROJECT INITIATION
 
-install dependencies
+### install dependencies
 
 ```sh
 npm install
 ```
-Start the command
+### Start the command
 
 `Note`: Dev uses the local environment, Pro is the online environment, the picture is in the cloud, please use the Pro environment to start, the Pro environment will be started and the picture cannot be loaded.
 However, it is normal after using build to build, the reason may be related to local development, or you can add images to the local area by yourself, pay attention to modify the path
 ```shell
 npm run pro
 ```
-build commands
+### build commands
 ```shell
 npm run build
 ```
 Note: The initial boot loading will be slow, and the packaged file is in the `dist-electron/release/` directory, which generally stores the packaged version.
 Enter the corresponding installation execution file according to the version, `win-unpacked` is the green version without installation, you can directly run the exe file, and the same is true for other system environments
 
+### resolve process remnants
+```shell
+TASKKILL /F /IM electron.exe
+```
+
 ## description of the project structure
-```sh
+```text
 + ├─┬ electron
 + │ ├── electron-env.d.ts             # Electron variable declaration file 
 + │ ├── main.ts                       # Electron main file 

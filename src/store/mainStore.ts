@@ -10,7 +10,8 @@ export const useMainStore = defineStore('mainStore', {
         return {
             // 所有这些属性都将自动推断其类型
             counter: 0,
-            count:0
+            count: 0,
+            isMask: false,
         }
     },
     actions: {
@@ -18,19 +19,28 @@ export const useMainStore = defineStore('mainStore', {
         increment() {
             this.counter++
         },
-        async autoIncrement(){
-            while (true){
+        async autoIncrement() {
+            this.changeMaskState()
+            while (true) {
                 await sleep(50)
-                if (this.count===100){
+                if (this.count === 100) {
+                    this.changeMaskState()
                     return
                 }
                 this.counter++
                 this.count++
             }
+
+        },
+        /* 设置遮罩状态 */
+        changeMaskState() {
+            this.isMask = !this.isMask
         }
     },
-    getters:{
+    getters: {
         // 类型是自动推断的，因为我们没有使用 `this`
         doubleCount: (state) => state.counter * 2,
+        // 返回全局遮罩状态
+        getIsMask: (state) => state.isMask,
     }
 })
