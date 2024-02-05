@@ -41,6 +41,7 @@ export default function useIPC() {
             height: 600,
             url: path
         }
+        console.log(path)
         window.ipcRenderer.invoke('renderer-open-win', data);
     }
     /* 向主进程发送同步消息，等待主进程处理两秒后返回消息*/

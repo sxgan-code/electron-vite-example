@@ -10,6 +10,7 @@ declare module 'vue' {
     ClassMenu: typeof import('./../src/components/ClassMenu.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElInput: typeof import('element-plus/es')['ElInput']
+    HeadSysController: typeof import('./../src/components/HeadSysController.vue')['default']
     HeadTitleBox: typeof import('./../src/components/HeadTitleBox.vue')['default']
     HgCode: typeof import('./../src/components/HgCode.vue')['default']
     ReturnPageBtn: typeof import('./../src/components/ReturnPageBtn.vue')['default']

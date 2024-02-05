@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import useChildIPC from "@/hooks/useChildIPC.ts";
+import useIPC from "@/hooks/useIPC.ts";
 
-const {closeChildWin} = useChildIPC();
+const {sendWinController} = useIPC();
 </script>
 
 <template>
   <div class="head-sys-click">
-    <div class="icon-box-close" @click="closeChildWin()"><i class="icon iconfont">&#xe68d</i></div>
+    <div class="icon-box-close" @click="sendWinController('close')"><i class="icon iconfont">&#xe68d</i></div>
+    <div class="icon-box-max" @click="sendWinController('max-unmax')"><i class="icon iconfont">&#xe751</i></div>
+    <div class="icon-box-min" @click="sendWinController('min')"><i class="icon iconfont">&#xe972</i></div>
   </div>
 </template>
 

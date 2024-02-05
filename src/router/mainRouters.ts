@@ -9,7 +9,7 @@ const mainRouters: RouteRecordRaw[] = [
     {
         path: '/main',
         name: 'main',
-        component: () => import("@/components/ClassMenu.vue"),
+        component: () => import("@/views/MainPage.vue"),
     },
     {
         path: '/login',

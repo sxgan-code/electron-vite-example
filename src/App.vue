@@ -12,7 +12,6 @@
 // })
 // 输出结果
 // console.log("test mock data:", JSON.stringify(data, null, 4))
-import MainPage from "@/views/MainPage.vue";
 import {useMainStore} from "@/store/mainStore.ts";
 
 var mainStore = useMainStore();
@@ -26,7 +25,13 @@ var mainStore = useMainStore();
             class="path1"></span><span class="path2"></span><span class="path3"></span></i>
       </div>
     </div>
-    <main-page/>
+    <div class="main-root">
+      <router-view v-slot="{ Component,route }">
+        <transition>
+          <component :is="Component" :key="route.path"/>
+        </transition>
+      </router-view>
+    </div>
   </div>
 </template>
 
@@ -53,12 +58,56 @@ var mainStore = useMainStore();
       color: #f89898;
     }
   }
-;
 }
 
 #app {
   height: 100vh;
   width: 100vw;
 }
+.main-root {
+  background-image: linear-gradient(to top, rgba(#fff1eb, 0.9) 0%, rgba(#ace0f9, 0.9) 100%);
+}
+
+.main-header-box {
+  width: 100vw;
+  height: 8rem;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.4s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+/* translation 移动进入的效果，前缀为move*/
+//.move-enter-active,
+//.move-leave-active {
+//  transition: all 1s inherit;
+//}
+//
+//.move-enter-from {
+//  //transform: translateX(100%);
+//  opacity: 0;
+//}
+//
+//.move-enter-to {
+//  //transform: translateX(0);
+//  opacity: 1;
+//}
+//
+//.move-leave-from {
+//  //  //transform: translateX(0);
+//  opacity: 1;
+//}
+//
+//.move-leave-to {
+//  //transform: translateX(100%);
+//  opacity: 0;
+//}
+
 
 </style>

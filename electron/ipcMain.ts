@@ -5,15 +5,16 @@ process.env.DIST = path.join(__dirname, '../dist')
 // 判断是否已打包，打包则返回dist目录，否则使用public目录
 process.env.VITE_PUBLIC = app.isPackaged ? process.env.DIST : path.join(process.env.DIST, '../public')
 const appIcon = path.join(process.env.VITE_PUBLIC, '/icons/logo-web-app.ico')
-// 判断开发环境
-const winURL = process.env.NODE_ENV === 'development'
-    ? 'http://localhost:9999'
-    : `file://${__dirname}/index.html`
-// 唯一子窗口
-let justChildWin: null | BrowserWindow = null
+
 export const initIpcMain = (win: BrowserWindow) => {
+    // 子窗口控制
+    ipcMain.handle('child-win-controller', (event, data) => {
+        console.log(event.processId);
+        console.log(data)
+    })
     /* 渲染进程通过管道send-sys-notice向主进程发送msg */
     ipcMain.on('renderer-main-msg', (event, msg: string) => {
+
         console.log(event, msg)
         // 测试对 Renderer-process 的活动推送消息。
         /*
@@ -30,6 +31,8 @@ export const initIpcMain = (win: BrowserWindow) => {
 
     // 窗口控制
     ipcMain.on('win-controller', (event, data) => {
+        console.log(event.processId);
+        console.log(data)
         if (data == 'max') {
             win.maximize()
         } else if (data == 'unmax') {
@@ -55,12 +58,6 @@ export const initIpcMain = (win: BrowserWindow) => {
             sendSysNotice("主进程任务处理完毕，处理时间：5s")
         }, 5000);
     });
-    // 异步打开窗口
-    ipcMain.handle("renderer-open-win", (e, param: string) => {
-        if (justChildWin === null) {
-            openChildWindow(win, param);
-        }
-    });
     // 异步处理一次
     ipcMain.handleOnce("event-handleOnce-test", (e) => {
         console.log("异步通信处理一次！");
@@ -82,38 +79,7 @@ export const initIpcMain = (win: BrowserWindow) => {
     }
 
 
-    function openChildWindow(win: BrowserWindow, param: any) {
-        justChildWin = new BrowserWindow({
-            parent:win,
-            width: param.width,
-            height: param.height,
-            show: false,
-            icon: appIcon,
-            resizable: true,
-            // frame:false,
-            // autoHideMenuBar: true,
-            modal: true, //现在子窗口可以拖动，而且只有关闭子窗口，才能触碰到父窗口
-            // titleBarStyle 配合 titleBarOverlay 在 windows 下会在应用右上方显示三个系统按钮：最小、最大、关闭。
-            // titleBarStyle: 'hidden',
-            // titleBarOverlay: {
-            //     color: '#ffffff00',
-            //     symbolColor: '#000000ff',
-            //     height: 30
-            // },
 
-            webPreferences: {
-                preload: path.resolve(__dirname, "../preload.js")
-            }
-        })
-
-        justChildWin.loadURL(winURL + '#' + param.url)  // hash路由
-        justChildWin.show()
-        justChildWin.webContents.openDevTools()
-        justChildWin.on('closed', () => {
-            justChildWin = null
-
-        })
-    }
 
     // function openChildView(win: BrowserWindow, param: any) {
     //     let justChildView = new BrowserView({
