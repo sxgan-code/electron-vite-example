@@ -1,58 +1,14 @@
 <script setup lang="ts">
-import useChildIPC from "@/hooks/useChildIPC.ts";
-
-const {closeChildWin} = useChildIPC();
+function sendMsgByChildWin(){
+  window.ipcRenderer.invoke('child-win-controller','哈哈哈哈哈哈哈')
+}
 </script>
 
 <template>
-  <div class="head-sys-click">
-    <div class="icon-box-close" @click="closeChildWin()"><i class="icon iconfont">&#xe68d</i></div>
-  </div>
+<h1>这是子窗口</h1>
+  <button type="button" @click="sendMsgByChildWin()">发送消息</button>
 </template>
 
-<style scoped lang="scss">
-.head-sys-click {
-  width: 12rem;
-  height: 8rem;
-  position: fixed;
-  right: 1rem;
-  top: 0.8rem;
-  text-align: center;
+<style scoped>
 
-  div {
-    float: right;
-    //background: lightcoral;
-    margin-left: 0.3rem;
-    display: inline;
-    width: 3rem;
-    height: 3rem;
-
-    i {
-      -webkit-app-region: no-drag; // li点击元素去除拖拽，不然后面无法实现点击事件
-      color: #fff;
-      font-size: 1.8rem;
-    }
-
-  }
-
-  .icon-box-min, .icon-box-max {
-    margin-top: 0.15rem;
-  }
-
-  .icon-box-max i {
-    font-weight: bold;
-    font-size: 1.9rem;
-  }
-
-  .icon-box-close i {
-    font-weight: bold;
-    font-size: 2.2rem;
-  }
-
-  div:hover {
-    i:hover {
-      color: #8ec5fc;
-    }
-  }
-}
 </style>

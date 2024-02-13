@@ -3,11 +3,11 @@
  */
 {
   "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
-  "appId": "20240125",
+  "appId": "YourAppID",
   "asar": true,
-  "productName": "ZoeyTemp",
+  "productName": "YourAppName",
   "directories": {
-    "output": "dist-electron/release/${version}"
+    "output": "release/${version}"
   },
   "files": [
     "dist",
@@ -20,23 +20,21 @@
     "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
   },
   "win": {
-    "icon": "public/icons/logo-web-app.ico",
-    "artifactName": "${productName}-Windows-${version}-Setup.${ext}",
     "target": [
       {
         "target": "nsis",
         "arch": [
           "x64"
         ]
-        
       }
     ],
+    "artifactName": "${productName}-Windows-${version}-Setup.${ext}"
   },
   "nsis": {
     "oneClick": false,
     "perMachine": false,
     "allowToChangeInstallationDirectory": true,
-    "deleteAppDataOnUninstall": false,
+    "deleteAppDataOnUninstall": false
   },
   "linux": {
     "target": [

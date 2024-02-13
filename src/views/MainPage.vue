@@ -1,16 +1,21 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+/* 打开一个子窗口*/
+const openChildWin = (path: string) => {
+  let data = {
+    width: 500,
+    height: 600,
+    url: path
+  }
+  console.log(path)
+  window.ipcRenderer.invoke('renderer-open-win', data);
+}
+</script>
 
 <template>
-  <div class="main-root">
-    <div class="main-header-box">
-      <HeadTitleBox title="案例大全" info="前端Electron21+Vite4+Vue3等系列案例"/>
-    </div>
-    <div>
-      <ClassMenu />
-    </div>
-  </div>
+  <button type="button" @click="openChildWin('/login')">打开一个窗口</button>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 
 </style>
