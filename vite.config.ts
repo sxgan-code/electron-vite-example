@@ -4,15 +4,24 @@ import vue from '@vitejs/plugin-vue'
 import electron from 'vite-plugin-electron/simple'
 import pkg from './package.json'
 import path from 'node:path'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import Icons from 'unplugin-icons/vite'
+import {createSvgIconsPlugin} from "vite-plugin-svg-icons";
+
+import {ElementPlusResolver} from "unplugin-vue-components/resolvers";
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
   fs.rmSync('dist-electron', { recursive: true, force: true })
-
+  const ENV_DIR = path.resolve(__dirname, "./env")
   const isServe = command === 'serve'
   const isBuild = command === 'build'
   const sourcemap = isServe || !!process.env.VSCODE_DEBUG
 
   return {
+    base:'./',
+    envDir: ENV_DIR,
     plugins: [
       vue(),
       electron({
@@ -60,6 +69,50 @@ export default defineConfig(({ command }) => {
         // If you want use Node.js in Renderer process, the `nodeIntegration` needs to be enabled in the Main process.
         // See 👉 https://github.com/electron-vite/vite-plugin-electron-renderer
         renderer: {},
+      }),
+      AutoImport({
+        resolvers: [
+          ElementPlusResolver(),
+          // Auto import icon components
+          // 自动导入图标组件
+          IconsResolver({
+            prefix: 'Icon',
+          }),
+        ],
+        // 配置auto-imports.d.ts文件生成路径
+        dts: path.resolve(__dirname, "other/auto-imports.d.ts"),
+
+      }),
+      createSvgIconsPlugin({
+        // 指定需要缓存的图标文件夹
+        iconDirs: [path.resolve(__dirname, "src/assets/images/common/svg")],
+        // 指定symbolId格式
+        symbolId: 'icon-[dir]-[name]',
+        /**
+         * 自定义插入位置
+         * @default: body-last
+         */
+        inject: 'body-last',
+        /**
+         * custom dom id
+         * @default: __svg__icons__dom__
+         */
+        customDomId: '__svg__icons__dom__',
+      }),
+      Components({
+        resolvers: [
+          // Auto register icon components
+          // 自动注册图标组件
+          IconsResolver({
+            enabledCollections: ['ep'],
+          }),
+          ElementPlusResolver(),
+        ],
+        // 配置components.d.ts文件生成路径
+        dts: path.resolve(__dirname, "other/components.d.ts")
+      }),
+      Icons({
+        autoInstall: true,
       }),
     ],
     resolve: {

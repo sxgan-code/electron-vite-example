@@ -3,9 +3,9 @@
  */
 {
   "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
-  "appId": "YourAppID",
+  "appId": "20240125",
   "asar": true,
-  "productName": "YourAppName",
+  "productName": "ZoeyTemp",
   "directories": {
     "output": "release/${version}"
   },
@@ -20,6 +20,7 @@
     "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
   },
   "win": {
+    "icon": "public/icons/logo-web-app.ico",
     "target": [
       {
         "target": "nsis",

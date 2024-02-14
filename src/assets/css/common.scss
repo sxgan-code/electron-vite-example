@@ -1,0 +1,140 @@
+@import "@/assets/iconfonts/iconconfig.scss";
+@import "@/assets/fonts/fonts.scss";
+
+
+:root {
+  /*文字颜色*/
+  --text--light: #cccccc;
+  --text--light-rgba: rgba(#FCFCFC, 0.6);
+  --text--deep: #333333;
+  --text--color: rgba(#FFF, 0.9);
+  --text-color-light-red: #FF6A6A;
+
+  --text-grey-light: #999;
+  --text-grey-light-1: rgba(#999, 0.1);
+  --text-grey-light-2: rgba(#999, 0.2);
+  --text-grey-light-3: rgba(#999, 0.3);
+  --text-grey-light-4: rgba(#999, 0.4);
+  --text-grey-light-5: rgba(#999, 0.5);
+  /*提示色*/
+  --text--tip: #3EAF7C;
+  --bg--rgba: rgba(#000, 0.1);
+  --bg--rgba-1: rgba(#000, 0.1);
+  --bg--rgba-2: rgba(#fff, 0.2);
+  --bg--rgba-3: rgba(#fff, 0.3);
+  --bg--rgba-4: rgba(#fff, 0.4);
+  --bg--rgba-5: rgba(#fff, 0.5);
+  --bg--active--rgba: rgba(#FFF, 0.3);
+  /*其他配色方案*/
+  --my-dark-light-1: #805398;
+
+  --el-active-color: #cccccc;
+  --el-color-white: #ffffff;
+  --el-color-black: #000000;
+  --el-color-primary: #409eff;
+  --el-color-primary-light-3: #79bbff;
+  --el-color-primary-light-5: #a0cfff;
+  --el-color-primary-light-7: #c6e2ff;
+  --el-color-primary-light-8: #d9ecff;
+  --el-color-primary-light-9: #ecf5ff;
+  --el-color-primary-dark-2: #337ecc;
+  --el-color-success: #67c23a;
+  --el-color-success-light-3: #95d475;
+  --el-color-success-light-5: #b3e19d;
+  --el-color-success-light-7: #d1edc4;
+  --el-color-success-light-8: #e1f3d8;
+  --el-color-success-light-9: #f0f9eb;
+  --el-color-success-dark-2: #529b2e;
+  --el-color-warning: #e6a23c;
+  --el-color-warning-light-3: #eebe77;
+  --el-color-warning-light-5: #f3d19e;
+  --el-color-warning-light-7: #f8e3c5;
+  --el-color-warning-light-8: #faecd8;
+  --el-color-warning-light-9: #fdf6ec;
+  --el-color-warning-dark-2: #b88230;
+  --el-color-danger: #f56c6c;
+  --el-color-danger-light-3: #f89898;
+  --el-color-danger-light-5: #fab6b6;
+  --el-color-danger-light-7: #fcd3d3;
+  --el-color-danger-light-8: #fde2e2;
+  --el-color-danger-light-9: #fef0f0;
+  --el-color-danger-dark-2: #c45656;
+  --el-color-error: #f56c6c;
+  --el-color-error-light-3: #f89898;
+  --el-color-error-light-5: #fab6b6;
+  --el-color-error-light-7: #fcd3d3;
+  --el-color-error-light-8: #fde2e2;
+  --el-color-error-light-9: #fef0f0;
+  --el-color-error-dark-2: #c45656;
+  --el-color-info: #909399;
+  --el-color-info-light-3: #b1b3b8;
+  --el-color-info-light-5: #c8c9cc;
+  --el-color-info-light-7: #dedfe0;
+  --el-color-info-light-8: #e9e9eb;
+  --el-color-info-light-9: #f4f4f5;
+  --el-color-info-dark-2: #73767a;
+  --el-bg-color: #ffffff;
+  --el-bg-color-page: #f2f3f5;
+  --el-bg-color-overlay: #ffffff;
+  --el-text-color-primary: #303133;
+  --el-text-color-regular: #606266;
+}
+
+/* 页面元素整体设置*/
+* {
+  user-select: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    text-decoration: none;
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+
+  :focus {
+    outline: none;
+  }
+}
+
+/*
+  此处为根元素 fontsize大小
+  当前设置为 10px，表示 1rem=10px
+  注意：本身带有fontsize属性的标签可能会有不同，例如 h1、h2...等标签可能并非期望值，所以建议这类标签自己写样式
+*/
+html, body {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  font-size: 10px;
+}
+
+/*滚动条整体样式*/
+::-webkit-scrollbar {
+  width: 1rem; /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1rem; /*表示水平方向的滚动条高度*/
+
+}
+
+::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+  border-radius: 1rem;
+  -webkit-box-shadow: inset 0 0 0.5rem rgba(#fff, 0.5);
+  background: rgba(#fff, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 1rem;
+  -webkit-box-shadow: inset 0 0 0.5rem rgba(#fff, 0.9);
+  background: rgba(#fff, 0.9);
+}
+
+::-webkit-scrollbar-track { /*滚动条里面轨道*/
+  border-radius: 1rem;
+  background: rgba(#fff, 0.2);
+  opacity: 0;
+}
+
+
+
+

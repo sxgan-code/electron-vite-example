@@ -18,9 +18,11 @@
       "@/*": ["./src/*"]
     },
     // 开启文件扩展名
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": false,
+    /* element-plus Volar支持 */
+    "types": ["element-plus/global"]
   },
-  "include": ["src"],
+  "include": ["src","src/**/*.ts","**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "electron/**"],
   "references": [
     { "path": "./tsconfig.node.json" }
   ]
