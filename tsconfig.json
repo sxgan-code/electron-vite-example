@@ -9,7 +9,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "skipLibCheck": true,
     "noEmit": true,
     /* path alias*/
@@ -18,12 +21,16 @@
       "@/*": ["./src/*"]
     },
     // 开启文件扩展名
-    "allowImportingTsExtensions": false,
+    "allowImportingTsExtensions": true,
     /* element-plus Volar支持 */
-    "types": ["element-plus/global"]
+    "types": [
+      "element-plus/global"
+    ]
   },
-  "include": ["src","src/**/*.ts","**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "electron/**"],
+  "include": ["src/**/*.ts","**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "electron"],
   "references": [
-    { "path": "./tsconfig.node.json" }
+    {
+      "path": "./tsconfig.node.json"
+    }
   ]
 }
