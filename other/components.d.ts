@@ -12,7 +12,6 @@ declare module 'vue' {
     ElInput: typeof import('element-plus/es')['ElInput']
     HeadSysController: typeof import('./../src/components/HeadSysController.vue')['default']
     HeadTitleBox: typeof import('./../src/components/HeadTitleBox.vue')['default']
-    HelloWorld: typeof import('./../src/components/HelloWorld.vue')['default']
     HgCode: typeof import('./../src/components/HgCode.vue')['default']
     ReturnPageBtn: typeof import('./../src/components/ReturnPageBtn.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

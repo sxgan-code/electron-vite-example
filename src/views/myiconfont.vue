@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {copyToClipboard, goToRouter} from "@/utils/CommonUtils.ts";
-import myIconFonts from "@/assets/iconfonts/myiconfont/myiconfont.data.arry.ts";
-import useBackTop from '@/hooks/useBackTop.ts'
+import {copyToClipboard, goToRouter} from "@/utils/CommonUtils";
+import myIconFonts from "@/assets/iconfonts/myiconfont/myiconfont.data.arry";
+import useBackTop from '@/hooks/use-back-top'
 import HeadTitleBox from "@/components/HeadTitleBox.vue";
 import {ref} from 'vue'
 

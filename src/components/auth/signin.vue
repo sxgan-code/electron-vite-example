@@ -1,9 +1,9 @@
 <script setup lang="ts">
 /* 状态管理*/
-import {useMainStore} from '@/store/mainStore.ts'
+import {useMainStore} from '@/store/mainStore'
 /* 登录相关业务*/
-import {getCaptchaApi, loginApi} from '@/api/auth/index.ts'
-import {LoginData} from "@/api/auth/types.ts";
+import {getCaptchaApi, loginApi} from '@/api/auth/index'
+import {LoginData} from "@/api/auth/types";
 import {ref} from "vue";
 import {ElMessage} from "element-plus";
 

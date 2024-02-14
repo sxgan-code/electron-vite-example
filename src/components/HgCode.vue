@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {copyToClipboard} from "@/utils/CommonUtils.ts";
+import {copyToClipboard} from "@/utils/CommonUtils";
 
 const props = defineProps({
   lang: {

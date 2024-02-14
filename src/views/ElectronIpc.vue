@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {goToRouter, sendToSysNotice} from "@/utils/CommonUtils.ts";
+import {goToRouter, sendToSysNotice} from "@/utils/CommonUtils";
 import HeadTitleBox from "@/components/HeadTitleBox.vue";
 /* 导入IPC */
-import useIPC from "@/hooks/useIPC.ts";
+import useIPC from "@/hooks/useIPC";
 import {ref} from "vue";
 
 const {sendToMainMsg, fromMainMsg, sendToMainMsgNotice, sendSyncMsgToMain, sendAsyncMsgToMain,openChildWin} = useIPC()

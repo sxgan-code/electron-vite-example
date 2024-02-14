@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {goToRouter} from "@/utils/CommonUtils.ts";
+import {goToRouter} from "@/utils/CommonUtils";
 </script>
 
 <template>

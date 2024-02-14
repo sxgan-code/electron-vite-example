@@ -12,7 +12,7 @@
 // })
 // 输出结果
 // console.log("test mock data:", JSON.stringify(data, null, 4))
-import {useMainStore} from "@/store/mainStore.ts";
+import {useMainStore} from "@/store/mainStore";
 
 var mainStore = useMainStore();
 </script>

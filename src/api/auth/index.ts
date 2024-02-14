@@ -1,4 +1,4 @@
-import request from "@/utils/http.ts";
+import request from "@/utils/http";
 import {AxiosPromise} from "axios";
 import {LoginData, LoginResult, VerifyCodeResult} from "./types";
 

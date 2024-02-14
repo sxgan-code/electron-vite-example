@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {goToRouter} from "@/utils/CommonUtils.ts";
-import songImages from "@/assets/datas/song-list.ts";
-import useBackTop from "@/hooks/useBackTop.ts";
+import {goToRouter} from "@/utils/CommonUtils";
+import songImages from "@/assets/datas/song-list";
+import useBackTop from "@/hooks/use-back-top";
 import {ref} from "vue";
 
 const anchorsRef = ref('anchorsRef')

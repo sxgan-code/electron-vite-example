@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {goToRouter} from "@/utils/CommonUtils.ts"
+import {goToRouter} from "@/utils/CommonUtils"
 // @ts-ignore 获取全部图标的is,注意svg指定目录
 import ids from "virtual:svg-icons-names"
 import HeadTitleBox from "@/components/HeadTitleBox.vue";

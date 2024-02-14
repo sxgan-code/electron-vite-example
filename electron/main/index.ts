@@ -159,6 +159,7 @@ async function createChildWindow(win: BrowserWindow, param: any) {
     })
     // justChildWin.webContents.on('will-navigate', (event, url) => { }) #344
     justChildWin.on('closed', () => {
+        ipcMain.removeHandler('child-win-controller')
         justChildWin = null
     })
 }

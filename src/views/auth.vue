@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {goToRouter} from "@/utils/CommonUtils.ts";
-import {useMainStore} from '@/store/mainStore.ts'
+import {goToRouter} from "@/utils/CommonUtils";
+import {useMainStore} from '@/store/mainStore'
 import ReturnPageBtn from "@/components/ReturnPageBtn.vue";
 import HeadTitleBox from "@/components/HeadTitleBox.vue";
 

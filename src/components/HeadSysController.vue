@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useIPC from "@/hooks/useIPC.ts";
+import useIPC from "@/hooks/useIPC";
 
 const {sendWinController} = useIPC();
 </script>

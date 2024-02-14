@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import huaweiIconArr from "@/assets/iconfonts/huaweiicon/huaweifont.data.arry.ts";
-import {copyToClipboard, goToRouter} from "@/utils/CommonUtils.ts";
-import useBackTop from "@/hooks/useBackTop.ts";
+import huaweiIconArr from "@/assets/iconfonts/huaweiicon/huaweifont.data.arry";
+import {copyToClipboard, goToRouter} from "@/utils/CommonUtils";
+import useBackTop from "@/hooks/use-back-top";
 import HeadTitleBox from "@/components/HeadTitleBox.vue";
 import {ref} from 'vue'
 
