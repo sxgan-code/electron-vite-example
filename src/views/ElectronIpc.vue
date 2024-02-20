@@ -111,7 +111,6 @@ new Notification({
     margin: 0 3rem;
 
     button {
-      line-height: 14rem;
       margin: 2rem 1rem;
     }
 

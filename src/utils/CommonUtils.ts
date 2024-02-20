@@ -9,7 +9,7 @@ export function goToRouter(path: string) {
 }
 
 /*这是一个睡眠方法*/
-export function sleep(ms: number) {
+export async function sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
 
