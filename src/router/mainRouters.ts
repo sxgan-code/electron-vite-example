@@ -46,6 +46,11 @@ const mainRouters: RouteRecordRaw[] = [
         name: 'electron-ipc',
         component: () => import("@/views/ElectronIpc.vue"),
     },
+    {
+        path: '/main/special-effect',
+        name: 'special-effect',
+        component: () => import("@/views/SpecialEffect.vue"),
+    },
     // {
     //     path: '/main',
     //     name: 'Main',

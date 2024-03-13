@@ -44,6 +44,15 @@ import {goToRouter} from "@/utils/CommonUtils";
       </div>
       <div class="hr"></div>
     </div>
+    <div class="main-content-class">
+      <div class="class-title">特效类</div>
+      <div class="all-class">
+        <div class="one-item">
+          <el-button type="primary" @click="goToRouter('/main/special-effect')">css拟态玻璃</el-button>
+        </div>
+      </div>
+      <div class="hr"></div>
+    </div>
   </div>
 
 </template>
